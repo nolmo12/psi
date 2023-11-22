@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.game
+{
+    font-size:150%;
+    text-decoration: underline;
+}
+.game:hover
+{
+    color:antiquewhite
+}
