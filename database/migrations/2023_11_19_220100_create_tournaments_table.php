@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Game::class)->constrained();
             $table->string('name');
+            $table->string('description');
             $table->dateTime('start_time')->default(date('Y-m-d H:i:s'));
             $table->timestamps();
         });

@@ -33,9 +33,8 @@ Route::get("/tournaments/{id}", [TournamentController::class, 'show']);
 
 Route::get("/teams", [TeamController::class, 'index'])->name('teams');
 
-Route::get("/create-tournament", function(){
-    return view("create-tournament");
-})->name('create-tournament');
+Route::get("/tournament-form", [TournamentController::class, 'create'])->name('create-tournament');
+Route::post("/tournament-store-form", [TournamentController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -18,7 +18,8 @@ class TournamentFactory extends Factory
     {
         return [
             'game_id' => rand(0, 6),
-            'name' => $this->faker->sentence()
+            'name' => $this->faker->sentence(),
+            'description' => $this->faker->sentence()
         ];
     }
 }
