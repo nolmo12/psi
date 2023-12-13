@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('games')" :active="request()->routeIs('games')">
                         {{ __('Games') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('games')" :active="request()->routeIs('teams')">
+                    <x-nav-link :href="route('teams')" :active="request()->routeIs('teams')">
                         {{ __('Teams') }}
                     </x-nav-link>
                     <x-nav-link :href="route('games')" :active="request()->routeIs('players')">

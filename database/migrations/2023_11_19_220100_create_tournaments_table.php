@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('tournaments', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Game::class);
+            $table->foreignIdFor(Game::class)->constrained();
             $table->string('name');
             $table->dateTime('start_time')->default(date('Y-m-d H:i:s'));
             $table->timestamps();

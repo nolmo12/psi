@@ -5,6 +5,7 @@ use App\Models\Game;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TournamentController;
 use App\Models\Team;
 use App\Models\Tournament;
@@ -29,6 +30,8 @@ Route::get("/games",[GameController::class,"index"])->name('games');
 Route::get("/games/{id}",[GameController::class,"show"])->name('game/{id}');
 
 Route::get("/tournaments/{id}", [TournamentController::class, 'show']);
+
+Route::get("/teams", [TeamController::class, 'index'])->name('teams');
 
 Route::get("/create-tournament", function(){
     return view("create-tournament");
