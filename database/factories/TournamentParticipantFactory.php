@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Team>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TournamentParticipant>
  */
-class TeamFactory extends Factory
+class TournamentParticipantFactory extends Factory
 {
     static $i = 0;
     /**
@@ -17,11 +17,10 @@ class TeamFactory extends Factory
      */
     public function definition(): array
     {
-        TeamFactory::$i++;
+        TournamentParticipantFactory::$i++;
         return [
-            'name'=> $this->faker->userName(),
-            'user_id' => TeamFactory::$i,
-            'game_id' => 1,
+            'tournament_id' => 1,
+            'team_id' => TournamentParticipantFactory::$i,
         ];
     }
 }

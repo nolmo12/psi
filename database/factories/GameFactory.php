@@ -18,7 +18,7 @@ class GameFactory extends Factory
     {
         return [
             'name'=> $this->faker->userName(),
-            'description' => $this->faker->sentence()
+            'description' => $this->faker->sentence(),
         ];
     }
 }

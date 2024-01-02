@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FixtureController;
 use App\Http\Controllers\GameController;
 use App\Models\Game;
 use Illuminate\Http\Request;
@@ -7,8 +8,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TournamentController;
+use App\Models\Fixture;
 use App\Models\Team;
 use App\Models\Tournament;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,16 +29,47 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/games",[GameController::class,"index"])->name('games');
+//Route::get("/games",[GameController::class,"index"])->name('games');
 
-Route::get("/games/{id}",[GameController::class,"show"])->name('game/{id}');
+// Route::get("/games/{id}",[GameController::class,"show"])->name('game/{id}');
 
-Route::get("/tournaments/{id}", [TournamentController::class, 'show']);
+// Route::get("/tournaments/{id}", [TournamentController::class, 'show']);
 
-Route::get("/teams", [TeamController::class, 'index'])->name('teams');
+//Route::get("/teams", [TeamController::class, 'index'])->name('teams');
 
 Route::get("/tournament-form", [TournamentController::class, 'create'])->name('create-tournament');
 Route::post("/tournament-store-form", [TournamentController::class, 'store']);
+
+Route::get("/games", function()
+{
+    return Game::all();
+});
+
+Route::get("/teams", function()
+{
+    return Team::all();
+});
+
+Route::get("/games/{id}",[GameController::class,"show"])->name('game/{id}');
+
+Route::get("/tournaments", [TournamentController::class, 'index']);
+
+Route::get("/tournaments/{id}", [TournamentController::class, 'show']);
+
+Route::get("/teams/ranking", [TeamController::class, 'ranking']);
+
+Route::get("/teams/{id}", [TeamController::class, 'statistic']);
+
+Route::get("/fixtures",[FixtureController::class, 'index']);
+
+Route::get("/fixtures/{id}",[FixtureController::class, 'show']);
+
+
+Route::get('users', function () {
+    return User::all();
+});
+
+Route::get('users/ranking', [ProfileController::class, 'statistic']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -17,9 +17,9 @@ class TournamentFactory extends Factory
     public function definition(): array
     {
         return [
-            'game_id' => rand(0, 6),
+            'game_id' => 1,
             'name' => $this->faker->sentence(),
-            'description' => $this->faker->sentence()
+            'has_ended' => rand(0, 1),
         ];
     }
 }

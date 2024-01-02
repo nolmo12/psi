@@ -17,9 +17,6 @@ class GameController extends Controller
     //Show single tournament
     public function show($id)
     {
-        return view("games.show", [
-            'game' => Game::find($id),
-            'tournaments' => Tournament::where('game_id', '=', $id)->get()
-        ]);
+        return Game::find($id);
     }
 }
