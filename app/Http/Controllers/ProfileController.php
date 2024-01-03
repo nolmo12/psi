@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -83,5 +84,15 @@ class ProfileController extends Controller
         $stats,
     ];
     return $data;
+    }
+
+    public function stats()
+    {
+        $user = User::find(5);
+        return $user->teams;
+        /*foreach($user->fixtures as $fixture)
+        {
+            echo $fixture;
+        }*/
     }
 }

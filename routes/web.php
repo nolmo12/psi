@@ -71,6 +71,8 @@ Route::get('users', function () {
 
 Route::get('users/ranking', [ProfileController::class, 'statistic']);
 
+Route::get('users/ranking2', [ProfileController::class, 'stats']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
