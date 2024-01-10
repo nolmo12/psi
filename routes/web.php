@@ -64,6 +64,10 @@ Route::get("/fixtures",[FixtureController::class, 'index']);
 
 Route::get("/fixtures/{id}",[FixtureController::class, 'show']);
 
+Route::get("/add-team", [TeamController::class, 'insert']);
+Route::post("/store-team-form", [TeamController::class, 'store']);
+Route::get("/add-fixture", [FixtureController::class, 'insert']);
+Route::post("/store-fixture-form", [FixtureController::class, 'store']);
 
 Route::get('users', function () {
     return User::all();

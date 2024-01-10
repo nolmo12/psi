@@ -24,7 +24,7 @@ class TeamController extends Controller
             ->select(DB::raw('sum(tournament_winners.team_id) as "place", teams.name as team_name'))
             ->leftJoin('tournament_winners', 'teams.id', '=' ,'tournament_winners.team_id')
             ->groupBy('teams.id')
-            ->orderBy('place')
+            ->orderBy('place', 'desc')
             ->get();
         
         $data = [
@@ -63,5 +63,20 @@ class TeamController extends Controller
         ]];
 
         return $data;
+    }
+
+    public function insert()
+    {
+        return view('teams.insert');
+    }
+
+    public function store(Request $request)
+    {
+        $team = new Team;
+        $team->name = $request->name;
+        $team->game_id = $request->game_id;
+        $team->user_id = $request->user_id;
+        $team->save();
+        return redirect('add-team')->with('status', 'Team has been added');
     }
 }

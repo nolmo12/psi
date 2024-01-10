@@ -30,4 +30,22 @@ class FixtureController extends Controller
 
         return $fixture;
     }
+
+    public function insert()
+    {
+        return view('fixtures.insert');
+    }
+
+    public function store(Request $request)
+    {
+        $fixture = new Fixture;
+        $fixture->tournament_id = $request->tournament_id;
+        $fixture->home_team_id = $request->home_team_id;
+        $fixture->away_team_id = $request->away_team_id;
+        $fixture->home_team_score = $request->home_team_score;
+        $fixture->away_team_score = $request->away_team_score;
+        $fixture->round_number = $request->round_number;
+        $fixture->save();
+        return redirect('add-fixture')->with('status', 'Match has been added');
+    }
 }
